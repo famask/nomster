@@ -99,7 +99,9 @@
 </div>
 
 <div class="clear"></div>
+
 <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
+  <%= f.input :picture %>
   <%= f.input :caption %>
   <%= f.submit "Upload", class: 'btn btn-primary' %>
 <% end %>
@@ -111,9 +113,8 @@
 <h1>Photos</h1>
 
 <% @place.photos.each do |photo| %>
-  <div>
-      <b><%= photo.caption %></b>
-        
-      
+  <div class="booyah-box offset-1 col-6 col-sm-6">
+    <%= image_tag photo.picture, class: 'uploaded-img' %>
+    <b><%= photo.caption %></b>
   </div>
 <% end %>
